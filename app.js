@@ -2,8 +2,8 @@
 // SEMIOTIC — Archive controller (hash-routed)
 //
 // Routes:
-//   (empty) | #collection           → archive index page
-//   #product/{id}                   → single-product detail view
+//   (empty) | #collection            → archive index page
+//   #product/{id}                    → single-product detail view
 //
 // Two top-level containers in index.html switch based on hash:
 //   #view-archive   → grid + pagination
@@ -320,7 +320,7 @@ function renderProductDetail(product) {
             ${s.size}
           </button>
         </li>`;
-    })
+    )
     .join("");
 
   detailBody.innerHTML = `
@@ -369,10 +369,10 @@ function renderProductDetail(product) {
           <p class="font-mono text-[10px] tracking-[0.3em] text-ash uppercase">Ref · ${product.id}</p>
         </div>
 
-        <dl class="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 font-mono text-[10px] tracking-[0.25em] uppercase">
+        <div class="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 font-mono text-[10px] tracking-[0.25em] uppercase">
           <dt class="text-ash">Edition</dt>
           <dd class="text-blood font-bold">Vol. 01 — Pre-order System</dd>
-        </dl>
+        </div>
 
         <p class="mt-8 font-mono text-[10px] tracking-[0.35em] text-ash uppercase">Select Size</p>
         <ul class="mt-3 grid grid-cols-4 gap-2 uppercase" data-role="size-list">${sizesHTML}</ul>
@@ -520,12 +520,19 @@ function buildMessage(product, size) {
 function dispatchAcquisition(product, size) {
   const message = buildMessage(product, size);
   const encoded = encodeURIComponent(message);
-
-  // Generates a mobile/desktop optimized redirect to your FB Page Messenger link.
-  // Note: m.me links natively support adding text variables on certain implementations,
-  // but it guarantees the client opens right into your thread.
   const url = `https://m.me/${CONTACT.facebookPageUsername}?text=${encoded}`;
-  window.open(url, "_blank", "noopener,noreferrer");
+
+  // Check if user is on a mobile platform (iOS / Android)
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    // Navigate in-tab on mobile to allow the system OS to intercept 
+    // the universal link and throw the user directly into the native app.
+    window.location.href = url;
+  } else {
+    // Keep clean desktop behavior (opens new tab)
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
 }
 
 const drawerBtn = document.getElementById("mobile-menu-btn");
