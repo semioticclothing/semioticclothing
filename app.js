@@ -519,19 +519,17 @@ function buildMessage(product, size) {
 
 function dispatchAcquisition(product, size) {
   const message = buildMessage(product, size);
-  const encoded = encodeURIComponent(message);
-  const url = `https://m.me/${CONTACT.facebookPageUsername}?text=${encoded}`;
-  
-  // Use a user-agent check to determine if we should open in a new window or same tab
-  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  
-  if (isMobile) {
-    // Navigate in-tab on mobile to allow the system OS to intercept
-    window.location.href = url;
-  } else {
-    // Desktop behavior
-    window.open(url, "_blank", "noopener,noreferrer");
+
+  // Copy pre-order details to clipboard
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(message).catch(() => {});
   }
+
+  // Open Messenger page
+  window.open(
+    "https://m.me/SemioticClothing",
+    "_blank"
+  );
 }
 
 const drawerBtn = document.getElementById("mobile-menu-btn");
