@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEMIOTIC — Archive Index</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#0a0a0a",       // near-black body
+            char: "#141414",       // charcoal cards
+            bone: "#e8e6e1",       // off-white text
+            ash:  "#6b6b6b",       // muted gray
+            wire: "#2a2a2a",       // hairline dividers
+            blood:"#c8331f",       // single accent
+          },
+          fontFamily: {
+            display: ['"Archivo Black"', "sans-serif"],
+            mono:    ['"JetBrains Mono"', "monospace"],
+            body:    ['"Space Mono"', "monospace"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html, body { background: #0a0a0a; }
+
+    /* Subtle film grain over the whole page — gives the "raw editorial" feel */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      opacity: 0.08;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+
+    /* Hairline rule used throughout */
+    .hairline { border-color: #2a2a2a; }
+
+    /* Smooth scroll for the pagination jump */
+    html { scroll-behavior: smooth; }
+
+    /* Card image hover: subtle scale + grayscale lift */
+    .card-img { transition: transform 600ms cubic-bezier(.2,.6,.2,1), filter 600ms ease; }
+    .card:hover .card-img { transform: scale(1.03); filter: grayscale(0%); }
+    .card-img { filter: grayscale(15%); }
+
+    /* Whole-card click affordance */
+    .card { cursor: pointer; }
+
+    /* Page button states */
+    .page-btn[aria-current="page"] { color: #e8e6e1; }
+    .page-btn:not([aria-current="page"]) { color: #6b6b6b; }
+    .page-btn:disabled { opacity: 0.25; cursor: not-allowed; }
+
+    /* Marquee — small detail in the header sub-line */
+    @keyframes drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .drift { animation: drift 60s linear infinite; }
+
+    /* Image placeholder (since /images/ paths are stubs) */
+    .placeholder {
+      background:
+        repeating-linear-gradient(135deg, #141414 0 24px, #1a1a1a 24px 48px);
+    }
+
+    /* ============================================================
+       PRODUCT DETAIL — zoom interaction
+       The main focus image lives in a fixed-aspect frame. On hover
+       (desktop) we crank up the scale and track the cursor via
+       transform-origin so the magnified region follows the pointer.
+       On touch devices we toggle a centered zoom on tap.
+       ============================================================ */
+    .zoom-frame {
+      overflow: hidden;
+      cursor: zoom-in;
+    }
+    .zoom-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform-origin: center center;
+      transition: transform 500ms cubic-bezier(.2,.6,.2,1), filter 500ms ease;
+      will-change: transform;
+      filter: grayscale(10%);
+    }
+    /* Desktop: hovering the frame zooms in to 2x, origin follows the
+       cursor via inline --zx/--zy custom properties set in JS. */
+    @media (hover: hover) and (pointer: fine) {
+      .zoom-frame:hover .zoom-img {
+        transform: scale(2);
+        transform-origin: var(--zx, 50%) var(--zy, 50%);
+        filter: grayscale(0%);
+      }
+    }
+    /* Touch: a `.is-zoomed` class flipped by JS on tap toggles a
+       centered 1.75x scale. No origin tracking — keeps gestures
+       predictable on small screens. */
+    .zoom-frame.is-zoomed .zoom-img {
+      transform: scale(1.75);
+      filter: grayscale(0%);
+    }
+    .zoom-frame.is-zoomed { cursor: zoom-out; }
+
+    /* Thumbnail strip — active thumbnail gets a bone-color outset. */
+    .thumb-btn {
+      transition: opacity 200ms ease, border-color 200ms ease;
+      opacity: 0.55;
+    }
+    .thumb-btn:hover { opacity: 1; }
+    .thumb-btn[aria-current="true"] {
+      opacity: 1;
+      border-color: #e8e6e1;
+    }
+
+    /* Brutalist "return" link — heavy, all-caps, blood underline on hover */
+    .return-link {
+      position: relative;
+      display: inline-block;
+      padding: 0.5rem 0;
+    }
+    .return-link::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 100%;
+      bottom: 0;
+      height: 2px;
+      background: #c8331f;
+      transition: right 240ms cubic-bezier(.2,.6,.2,1);
+    }
+    .return-link:hover::after { right: 0; }
+  </style>
+</head>
+
+<body class="bg-ink text-bone font-body antialiased selection:bg-blood selection:text-bone">
+
+  <div class="border-b hairline overflow-hidden">
+    <div class="flex whitespace-nowrap py-2 font-mono text-[10px] tracking-[0.3em] text-ash drift">
+      <span class="px-6">SEMIOTIC — ARCHIVE INDEX</span><span class="px-6">◆</span>
+      <span class="px-6">SS / 12 DROP</span><span class="px-6">◆</span>
+      <span class="px-6">PHILOSOPHY AS GARMENT</span><span class="px-6">◆</span>
+      <span class="px-6">SHIPS NATIONWIDE</span><span class="px-6">◆</span>
+      <span class="px-6">EVERY PIECE IS A SIGN</span><span class="px-6">◆</span>
+      <span class="px-6">SEMIOTIC — ARCHIVE INDEX</span><span class="px-6">◆</span>
+      <span class="px-6">SS / 12 DROP</span><span class="px-6">◆</span>
+      <span class="px-6">PHILOSOPHY AS GARMENT</span><span class="px-6">◆</span>
+      <span class="px-6">SHIPS NATIONWIDE</span><span class="px-6">◆</span>
+      <span class="px-6">EVERY PIECE IS A SIGN</span><span class="px-6">◆</span>
+    </div>
+  </div>
+
+  <div class="block md:hidden border-b hairline bg-ink">
+    <div class="px-6 py-5 flex items-center gap-3">
+      <img src="images/logo.png" alt="SEMIOTIC Logo" class="h-6 w-auto object-contain brightness-95" />
+      <a href="#collection" class="font-display text-xl tracking-[0.02em] uppercase">SEMIOTIC</a>
+    </div>
+  </div>
+
+  <header class="hidden md:block border-b hairline">
+    <div class="px-10 py-8 flex items-end justify-between">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="images/logo.png" alt="SEMIOTIC Logo" class="h-7 w-auto object-contain brightness-95" />
+          <a href="#collection" class="block font-display text-4xl tracking-[0.02em] leading-none">SEMIOTIC</a>
+        </div>
+        <p class="mt-3 font-mono text-[11px] tracking-[0.25em] text-ash uppercase">
+          A study of signs &nbsp;/&nbsp; worn as evidence
+        </p>
+      </div>
+
+      <nav class="flex gap-10 font-mono text-[11px] tracking-[0.3em] uppercase">
+        <a href="#collection" class="text-bone hover:text-blood transition-colors">Archive</a>
+        <a href="manifesto.html" class="text-ash hover:text-bone transition-colors">Manifesto</a>
+        <a href="lookbook.html" class="text-ash hover:text-bone transition-colors">Lookbook</a>
+        <a href="#" class="text-ash hover:text-bone transition-colors">Contact</a>
+      </nav>
+
+      <div class="text-right">
+        <p class="font-mono text-[10px] tracking-[0.3em] text-ash">[ ARCHIVE INDEX ]</p>
+        <p id="archive-count-desktop" class="font-display text-2xl mt-1">— / —</p>
+      </div>
+    </div>
+  </header>
+
+  <div id="view-archive">
+
+    <section class="px-6 md:px-10 pt-14 md:pt-24 pb-10 md:pb-20 border-b hairline">
+      <div class="grid md:grid-cols-12 gap-6 md:gap-12 items-end">
+        <div class="md:col-span-8">
+          <p class="font-mono text-[10px] tracking-[0.4em] text-ash uppercase">Vol. 01 — Archive Release</p>
+          <h2 class="font-display mt-4 text-[44px] leading-[0.95] md:text-[120px] md:leading-[0.9] tracking-[-0.01em]">
+            THE&nbsp;SIGN<br/>
+            PRECEDES<br/>
+            <span class="text-ash">THE OBJECT.</span>
+          </h2>
+        </div>
+        <div class="md:col-span-4 md:pb-6">
+          <p class="font-body text-sm md:text-base leading-relaxed text-ash max-w-sm">
+            Every drop is a closed system of references — philosophy, occult printwork,
+            worn typography. Read the garment, then read it again.
+          </p>
+          <div class="mt-6 flex items-center gap-3 font-mono text-[10px] tracking-[0.3em] text-bone uppercase">
+            <span class="w-6 h-px bg-bone"></span>
+            <span>Curated · PHILIPPINES </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main id="collection" class="px-6 md:px-10 pt-12 md:pt-20 pb-32 md:pb-32 scroll-mt-4">
+
+      <div class="flex items-end justify-between mb-8 md:mb-14 pb-4 border-b hairline">
+        <div>
+          <p class="font-mono text-[10px] tracking-[0.4em] text-ash uppercase">§ 01</p>
+          <h3 class="font-display text-2xl md:text-4xl mt-2 tracking-tight">ARCHIVE</h3>
+        </div>
+        <p class="font-mono text-[10px] tracking-[0.3em] text-ash uppercase hidden md:block">
+          Sort — Latest Drop
+        </p>
+      </div>
+
+      <section
+        id="product-grid"
+        class="grid grid-cols-1 md:grid-cols-3 gap-y-16 md:gap-12"
+      ></section>
+
+      <nav
+        id="pagination"
+        aria-label="Archive pagination"
+        class="mt-20 md:mt-28 pt-8 border-t hairline flex items-center justify-center gap-6 md:gap-10 font-mono text-sm tracking-[0.2em]"
+      ></nav>
+
+      <p class="mt-16 text-center font-mono text-[10px] tracking-[0.4em] text-ash uppercase">
+        End of section — return to top
+      </p>
+
+    </main>
+
+  </div>
+
+  <section id="view-product" class="hidden px-6 md:px-10 pt-8 md:pt-12 pb-32 md:pb-32" aria-hidden="true">
+    <div id="product-detail-body"></div>
+  </section>
+
+  <footer class="hidden md:block border-t hairline px-10 py-12">
+    <div class="grid grid-cols-12 gap-12">
+      <div class="col-span-4">
+        <div class="flex items-center gap-3">
+          <img src="images/logo.png" alt="SEMIOTIC Logo" class="h-5 w-auto object-contain brightness-95" />
+          <p class="font-display text-2xl">SEMIOTIC</p>
+        </div>
+        <p class="font-mono text-[10px] tracking-[0.3em] text-ash mt-3 uppercase">
+          © 2026 — Independent Wear
+        </p>
+      </div>
+      <div class="col-span-3 font-mono text-[11px] tracking-[0.2em] text-ash uppercase space-y-2">
+        <p class="text-bone">Index</p>
+        <a href="#collection" class="block hover:text-bone">Archive</a>
+        <a href="manifesto.html" class="block hover:text-bone">Manifesto</a>
+        <a href="lookbook.html" class="block hover:text-bone">Lookbook</a>
+      </div>
+      <div class="col-span-2 font-mono text-[11px] tracking-[0.2em] text-ash uppercase space-y-2">
+        <p class="text-bone">Support</p>
+        <button onclick="toggleSizingModal(true)" class="block text-left hover:text-bone">Sizing Guide</button>
+      </div>
+      <div class="col-span-3 font-mono text-[11px] tracking-[0.2em] text-ash uppercase">
+        <p class="text-bone mb-2">Correspondence</p>
+        <p>semioticclothing@gmail.com</p>
+        <p class="mt-2">PHILIPPINES</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="md:hidden fixed bottom-0 inset-x-0 z-50">
+    <div class="h-6 bg-gradient-to-t from-ink to-transparent"></div>
+
+    <div class="bg-ink/95 backdrop-blur border-t hairline">
+      <div class="grid grid-cols-4 text-bone font-mono text-[10px] tracking-[0.25em] uppercase">
+        <a href="#collection" class="flex flex-col items-center justify-center py-3 gap-1">
+          <span class="text-base leading-none">◼</span>
+          <span>Archive</span>
+        </a>
+        <a href="manifesto.html" class="flex flex-col items-center justify-center py-3 gap-1 text-ash hover:text-bone transition-colors">
+          <span class="text-base leading-none">§</span>
+          <span>Manifesto</span>
+        </a>
+        <a href="lookbook.html" class="flex flex-col items-center justify-center py-3 gap-1 text-ash hover:text-bone transition-colors">
+          <span class="text-base leading-none">◉</span>
+          <span>Look</span>
+        </a>
+        <button id="mobile-menu-btn" class="flex flex-col items-center justify-center py-3 gap-1 text-ash">
+          <span class="text-base leading-none">≡</span>
+          <span>Index</span>
+        </button>
+      </div>
+
+      <div id="mobile-drawer" class="hidden border-t hairline px-6 py-6 bg-ink">
+        <p class="font-mono text-[10px] tracking-[0.4em] text-ash uppercase">[ Archive Index ]</p>
+        <p id="archive-count-mobile" class="font-display text-3xl mt-2">— / —</p>
+        <div class="mt-6 space-y-3 font-mono text-[11px] tracking-[0.25em] uppercase">
+          <button onclick="toggleSizingModal(true)" class="block text-left w-full">Sizing Guide →</button>
+          <a href="#" class="block">Contact →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sizing-modal" class="hidden fixed inset-0 bg-ink/90 backdrop-blur-md z-[100] flex items-center justify-center p-4 md:p-10" onclick="toggleSizingModal(false)">
+    <div class="relative max-w-4xl w-full border hairline bg-char p-4 md:p-6" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between pb-4 border-b border-wire mb-4">
+        <p class="font-mono text-xs tracking-widest uppercase text-ash">System Specification // Sizing Chart</p>
+        <button onclick="toggleSizingModal(false)" class="font-mono text-xs text-ash hover:text-blood transition-colors uppercase">[ CLOSE ]</button>
+      </div>
+      <div class="w-full h-auto overflow-hidden">
+        <img src="/images/sizing-chart.png" alt="SEMIOTIC Sizing Specification" class="w-full h-auto object-contain max-h-[70vh] grayscale brightness-95" />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Inline modal toggle controller
+    function toggleSizingModal(open) {
+      const modal = document.getElementById('sizing-modal');
+      if (open) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      } else {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+  </script>
+
+  <script src="app.js"></script>
+</body>
+</html>

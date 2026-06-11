@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEMIOTIC — Vol. 01 Lookbook</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ink: "#0a0a0a", char: "#141414", bone: "#e8e6e1", ash: "#6b6b6b", wire: "#2a2a2a", blood: "#c8331f" },
+          fontFamily: { display: ['"Archivo Black"', "sans-serif"], mono: ['"JetBrains Mono"', "monospace"], body: ['"Space Mono"', "monospace"] },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html, body { background: #0a0a0a; color: #e8e6e1; font-family: "Space Mono", monospace; scroll-behavior: smooth; }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 100; opacity: 0.08; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+    .hairline { border-color: #2a2a2a; }
+    .look-img { filter: grayscale(15%); transition: all 600ms cubic-bezier(.2,.6,.2,1); }
+    .look-img:hover { filter: grayscale(0%); transform: scale(1.01); }
+  </style>
+</head>
+<body class="antialiased selection:bg-blood selection:text-bone">
+
+  <header class="border-b hairline sticky top-0 bg-ink/90 backdrop-blur z-50">
+    <div class="px-6 md:px-10 py-6 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="/images/logo.png" alt="" class="h-6 w-auto object-contain brightness-95" onerror="this.style.display='none';" />
+        <a href="index.html#collection" class="font-display text-xl md:text-2xl tracking-tighter uppercase">SEMIOTIC</a>
+      </div>
+      <a href="index.html#collection" class="font-mono text-[10px] tracking-[0.25em] text-ash hover:text-bone transition-colors uppercase">
+        [ Return to Archive ]
+      </a>
+    </div>
+  </header>
+
+  <main class="px-6 md:px-10 pt-12 pb-32">
+    <div class="max-w-4xl border-b hairline pb-6 mb-20">
+      <p class="font-mono text-[10px] tracking-[0.4em] text-ash uppercase">Visual Manifestation // Vol. 01</p>
+      <h1 class="font-display text-4xl md:text-7xl uppercase mt-2 tracking-tight">VOL 1 LOOKBOOK</h1>
+      <p class="text-ash text-xs mt-4 uppercase tracking-widest font-mono">24 Signs / 12 Subjects</p>
+    </div>
+
+    <section class="space-y-24 max-w-6xl mx-auto">
+      
+      <div class="group">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-CREAM-FRONT.PNG" alt="Look 1 - A" class="w-full h-full object-cover look-img" />
+          </div>
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-CREAM-BACK.PNG" alt="Look 1 - B" class="w-full h-full object-cover look-img" />
+          </div>
+        </div>
+        <div class="mt-4 border-b border-wire pb-4 font-mono text-xs tracking-[0.15em] text-bone uppercase font-bold">
+          LOOK 1 - VOL 1 // C.R.E.A.M
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-CONCHAVO1-BACK.PNG" alt="Look 2 - A" class="w-full h-full object-cover look-img" />
+          </div>
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-CONCHAVO2-BACK.PNG" alt="Look 2 - B" class="w-full h-full object-cover look-img" />
+          </div>
+        </div>
+        <div class="mt-4 border-b border-wire pb-4 font-mono text-xs tracking-[0.15em] text-bone uppercase font-bold">
+          LOOK 2 - VOL 1 // CONCHAVO
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-GABRIELA-FRONT.PNG" alt="Look 3 - A" class="w-full h-full object-cover look-img" />
+          </div>
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-GABRIELA-BACK.PNG" alt="Look 3 - B" class="w-full h-full object-cover look-img" />
+          </div>
+        </div>
+        <div class="mt-4 border-b border-wire pb-4 font-mono text-xs tracking-[0.15em] text-bone uppercase font-bold">
+          LOOK 3 - VOL 1 // GABRIELA
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-GRAFTING1-BACK.PNG" alt="Look 4 - A" class="w-full h-full object-cover look-img" />
+          </div>
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-GRAFTING2-BACK.PNG" alt="Look 4 - B" class="w-full h-full object-cover look-img" />
+          </div>
+        </div>
+        <div class="mt-4 border-b border-wire pb-4 font-mono text-xs tracking-[0.15em] text-bone uppercase font-bold">
+          LOOK 4 - VOL 1 // GRAFTING
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-INDIOS-BACK.png" alt="Look 5 - A" class="w-full h-full object-cover look-img" />
+          </div>
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-INDIOS-FRONT.PNG" alt="Look 5 - B" class="w-full h-full object-cover look-img" />
+          </div>
+        </div>
+        <div class="mt-4 border-b border-wire pb-4 font-mono text-xs tracking-[0.15em] text-bone uppercase font-bold">
+          LOOK 5 - VOL 1 // INDIOS IN PARIS
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-OUT OF THIS WORLD-FRONT.PNG" alt="Look 6 - A" class="w-full h-full object-cover look-img" />
+          </div>
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-OUT OF THIS WORLD-BACK.PNG" alt="Look 6 - B" class="w-full h-full object-cover look-img" />
+          </div>
+        </div>
+        <div class="mt-4 border-b border-wire pb-4 font-mono text-xs tracking-[0.15em] text-bone uppercase font-bold">
+          LOOK 6 - VOL 1 // OUT OF THIS WORLD
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-REGICIDE-FRONT.png" alt="Look 7 - A" class="w-full h-full object-cover look-img" />
+          </div>
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-REGICIDE-BACK.png" alt="Look 7 - B" class="w-full h-full object-cover look-img" />
+          </div>
+        </div>
+        <div class="mt-4 border-b border-wire pb-4 font-mono text-xs tracking-[0.15em] text-bone uppercase font-bold">
+          LOOK 7 - VOL 1 // REGICIDE
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-SCHISM1-BACK.PNG" alt="Look 8 - A" class="w-full h-full object-cover look-img" />
+          </div>
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-SCHISM2-BACK.PNG" alt="Look 8 - B" class="w-full h-full object-cover look-img" />
+          </div>
+        </div>
+        <div class="mt-4 border-b border-wire pb-4 font-mono text-xs tracking-[0.15em] text-bone uppercase font-bold">
+          LOOK 8 - VOL 1 // SCHISM
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-UNDOMESTICATED1-BACK.PNG" alt="Look 9 - A" class="w-full h-full object-cover look-img" />
+          </div>
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-UNDOMESTICATED2-BACK.PNG" alt="Look 9 - B" class="w-full h-full object-cover look-img" />
+          </div>
+        </div>
+        <div class="mt-4 border-b border-wire pb-4 font-mono text-xs tracking-[0.15em] text-bone uppercase font-bold">
+          LOOK 9 - VOL 1 // UNDOMESTICATED
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-YOUTHINASIA1-BACK.PNG" alt="Look 10 - A" class="w-full h-full object-cover look-img" />
+          </div>
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-YOUTHINASIA2-BACK.PNG" alt="Look 10 - B" class="w-full h-full object-cover look-img" />
+          </div>
+        </div>
+        <div class="mt-4 border-b border-wire pb-4 font-mono text-xs tracking-[0.15em] text-bone uppercase font-bold">
+          LOOK 10 - VOL 1 // YOUTH IN ASIA
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-NUFFSAID-FRONT.PNG" alt="Look 11 - A" class="w-full h-full object-cover look-img" />
+          </div>
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-NUFFSAID-BACK.PNG" alt="Look 11 - B" class="w-full h-full object-cover look-img" />
+          </div>
+        </div>
+        <div class="mt-4 border-b border-wire pb-4 font-mono text-xs tracking-[0.15em] text-bone uppercase font-bold">
+          LOOK 11 - VOL 1 // NUFF SAID
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-DEGUSTATION-FRONT.PNG" alt="Look 12 - A" class="w-full h-full object-cover look-img" />
+          </div>
+          <div class="border hairline bg-char overflow-hidden aspect-[3/4]">
+            <img src="/images/LB-DEGUSTATION-BACK.PNG" alt="Look 12 - B" class="w-full h-full object-cover look-img" />
+          </div>
+        </div>
+        <div class="mt-4 border-b border-wire pb-4 font-mono text-xs tracking-[0.15em] text-bone uppercase font-bold">
+          LOOK 12 - VOL 1 // DEGUSTATION
+        </div>
+      </div>
+
+    </section>
+
+    <div class="mt-32 pt-16 border-t hairline text-center">
+      <a href="index.html#collection" class="font-display text-sm md:text-base tracking-[0.25em] uppercase border border-bone px-10 py-5 bg-bone text-ink hover:bg-transparent hover:text-bone transition-all duration-300">
+        RETURN TO ARCHIVE INDEX
+      </a>
+    </div>
+  </main>
+</body>
+</html>

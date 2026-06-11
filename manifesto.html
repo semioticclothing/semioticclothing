@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEMIOTIC — Manifesto // Vol. 01</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ink: "#0a0a0a", char: "#141414", bone: "#e8e6e1", ash: "#6b6b6b", wire: "#2a2a2a", blood: "#c8331f" },
+          fontFamily: { display: ['"Archivo Black"', "sans-serif"], mono: ['"JetBrains Mono"', "monospace"], body: ['"Space Mono"', "monospace"] },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html, body { background: #0a0a0a; color: #e8e6e1; font-family: "Space Mono", monospace; scroll-behavior: smooth; }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 100; opacity: 0.08; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+    .hairline { border-color: #2a2a2a; }
+  </style>
+</head>
+<body class="antialiased selection:bg-blood selection:text-bone">
+
+  <header class="border-b hairline sticky top-0 bg-ink/90 backdrop-blur z-50">
+    <div class="px-6 md:px-10 py-6 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="/images/logo.png" alt="" class="h-6 w-auto object-contain brightness-95" onerror="this.style.display='none';" />
+        <a href="index.html#collection" class="font-display text-xl md:text-2xl tracking-tighter uppercase">SEMIOTIC</a>
+      </div>
+      <a href="index.html#collection" class="font-mono text-[10px] tracking-[0.25em] text-ash hover:text-bone transition-colors uppercase">
+        [ Return to Archive ]
+      </a>
+    </div>
+  </header>
+
+  <main class="px-6 md:px-10 pt-12 pb-32 max-w-4xl mx-auto">
+    
+    <div class="border-b hairline pb-6 mb-16">
+      <p class="font-mono text-[10px] tracking-[0.4em] text-ash uppercase">Theoretical Foundations // Core Code</p>
+      <h1 class="font-display text-4xl md:text-7xl uppercase mt-2 tracking-tight">THE MANIFESTO</h1>
+      <p class="text-ash text-xs mt-4 uppercase tracking-widest font-mono">Vol. 01 / System Definitions</p>
+    </div>
+
+    <div class="space-y-16 font-body text-sm md:text-base leading-relaxed text-bone max-w-3xl">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+        <div class="font-mono text-[11px] text-blood tracking-widest uppercase md:pt-1">[ AXIOM 01 ]</div>
+        <div class="md:col-span-3 space-y-4">
+          <p class="font-bold tracking-wide uppercase font-mono text-sm text-bone">The World is Saturated with Ghost Signs.</p>
+          <p class="text-ash lowercase first-letter:uppercase">
+            We are surrounded by signals that mean nothing. Culture has become a continuous loop of replication without an original source. SEMIOTIC exists as a physical counter-measure. We do not manufacture garments to follow transient design cycles; we build artifacts to record structural truth.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start border-t border-wire pt-12">
+        <div class="font-mono text-[11px] text-blood tracking-widest uppercase md:pt-1">[ AXIOM 02 ]</div>
+        <div class="md:col-span-3 space-y-4">
+          <p class="font-bold tracking-wide uppercase font-mono text-sm text-bone">Garments as Subversive Infrastructure.</p>
+          <p class="text-ash lowercase first-letter:uppercase">
+            What you wear is an outer layer of consciousness. To assume the shape of our silhouettes—to carry names like <span class="text-bone font-mono text-xs">SCHISM</span>, <span class="text-bone font-mono text-xs">REGICIDE</span>, or <span class="text-bone font-mono text-xs">CONCHAVO</span>—is a conscious rejection of standard compliance. It is the tactical decision to drape the body in historical conflict, psychological friction, and severe geometric alignment.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start border-t border-wire pt-12">
+        <div class="font-mono text-[11px] text-blood tracking-widest uppercase md:pt-1">[ AXIOM 03 ]</div>
+        <div class="md:col-span-3 space-y-4">
+          <p class="font-bold tracking-wide uppercase font-mono text-sm text-bone">The Premise of the Permanent Archive.</p>
+          <p class="text-ash lowercase first-letter:uppercase">
+            We operate an observation grid, cataloging items through numerical volume states rather than temporary seasons. Every piece is a permanent iteration. The fabric is chosen for high durability, structural rigidity, and its capacity to patina—allowing physical interaction with reality to slowly reveal the true character beneath the textile.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start border-t border-wire pt-12">
+        <div class="font-mono text-[11px] text-blood tracking-widest uppercase md:pt-1">[ AXIOM 04 ]</div>
+        <div class="md:col-span-3 space-y-4">
+          <p class="font-bold tracking-wide uppercase font-mono text-sm text-bone">Decode the Environment.</p>
+          <p class="text-ash lowercase first-letter:uppercase">
+            Do not consume blindly. Question the architectures that frame your movement, the systems that process your choices, and the messages printed across your chest. This is not casual luxury. This is an editorial framework for a disciplined state of mind.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-24 p-6 border border-wire bg-char/50 font-mono text-[11px] tracking-widest text-ash uppercase space-y-1">
+      <p class="text-blood font-bold">SYSTEM STATUS: OPERATIONAL // SYSTEM ARCHIVE: ACTIVE</p>
+      <p>REF: VOL. 01 SPECIFICATIONS / 12 SUBJECTS CATALOGUED</p>
+      <p>© 2026 SEMIOTIC INDUSTRIAL FRAMEWORK. ALL RIGHTS RESERVED.</p>
+    </div>
+
+    <div class="mt-20 text-center">
+      <a href="index.html#collection" class="font-display text-xs tracking-[0.25em] uppercase border border-bone px-8 py-4 bg-bone text-ink hover:bg-transparent hover:text-bone transition-all duration-300">
+        ENTER ARCHIVE
+      </a>
+    </div>
+
+  </main>
+</body>
+</html>

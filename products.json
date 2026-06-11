@@ -1,0 +1,202 @@
+[
+  {
+    "id": "SM-01-CREAM",
+    "name": "C.R.E.A.M",
+    "price": 1199,
+    "images": [
+      "/images/CREAM FRONT - FLAT.png",
+      "/images/CREAM BACK - FLAT.png",
+      "/images/CREAM FRONT - HANGED.png",
+      "/images/CREAM FRONT - CLOSE UP.png"
+    ],
+    "sizes": [
+      { "size": "S", "status": "In Stock" },
+      { "size": "M", "status": "In Stock" },
+      { "size": "L", "status": "In Stock" },
+      { "size": "XL", "status": "In Stock" }
+    ]
+  },
+  {
+    "id": "SM-02-CONCHAVO",
+    "name": "CONCHAVO",
+    "price": 1199,
+    "images": [
+      "/images/CONCHAVO FRONT - FLAT.png",
+      "/images/CONCHAVO BACK - FLAT.png",
+      "/images/CONCHAVO FRONT - HANGED.png",
+      "/images/CONCHAVO BACK - HANGED.png",
+      "/images/CONCHAVO - CLOSEUP.png"
+    ],
+    "sizes": [
+      { "size": "S", "status": "In Stock" },
+      { "size": "M", "status": "In Stock" },
+      { "size": "L", "status": "In Stock" },
+      { "size": "XL", "status": "In Stock" }
+    ]
+  },
+  {
+    "id": "SM-03-GABRIELA",
+    "name": "GABRIELA",
+    "price": 1199,
+    "images": [
+      "/images/GABRIELA FRONT - FLAT.png",
+      "/images/GABRIELA BACK - FLAT.png",
+      "/images/GABRIELA FRONT - HANGED.png"
+    ],
+    "sizes": [
+      { "size": "S", "status": "In Stock" },
+      { "size": "M", "status": "In Stock" },
+      { "size": "L", "status": "In Stock" },
+      { "size": "XL", "status": "In Stock" }
+    ]
+  },
+  {
+    "id": "SM-04-GRAFTING",
+    "name": "GRAFTING",
+    "price": 1199,
+    "images": [
+      "/images/GRAFT BACK - FLAT.png",
+      "/images/GRAFT BACK - HANGED.png",
+      "/images/GRAFT - CLOSE UP.png"
+    ],
+    "sizes": [
+      { "size": "S", "status": "In Stock" },
+      { "size": "M", "status": "In Stock" },
+      { "size": "L", "status": "In Stock" },
+      { "size": "XL", "status": "In Stock" }
+    ]
+  },
+  {
+    "id": "SM-05-INDIOS",
+    "name": "INDIOS IN PARIS",
+    "price": 1199,
+    "images": [
+      "/images/INDIOS IN PARIS FRONT - FLAT.png",
+      "/images/INDIOS IN PARIS BACK - FLAT.png",
+      "/images/INDIOS FRONT - HANGED.png",
+      "/images/INDIOS - CLOSEUP.png"
+    ],
+    "sizes": [
+      { "size": "S", "status": "In Stock" },
+      { "size": "M", "status": "In Stock" },
+      { "size": "L", "status": "In Stock" },
+      { "size": "XL", "status": "In Stock" }
+    ]
+  },
+  {
+    "id": "SM-06-OOTW",
+    "name": "OUT OF THIS WORLD",
+    "price": 1199,
+    "images": [
+      "/images/OUT OF THIS WORLD FRONT  - FLAT.png",
+      "/images/OUT OF THIS WORLD BACK - FLAT.png",
+      "/images/OUT OF THIS WORLD FRONT - HANGED.png",
+      "/images/OUT OF THIS WORLD - CLOSEUP.png"
+    ],
+    "sizes": [
+      { "size": "S", "status": "In Stock" },
+      { "size": "M", "status": "In Stock" },
+      { "size": "L", "status": "In Stock" },
+      { "size": "XL", "status": "In Stock" }
+    ]
+  },
+  {
+    "id": "SM-07-REGICIDE",
+    "name": "REGICIDE",
+    "price": 1199,
+    "images": [
+      "/images/REGICIDE FRONT - FLAT.png",
+      "/images/REGICIDE BACK - FLAT.png",
+      "/images/REGICIDE FRONT - HANGED.png",
+      "/images/REGICIDE - CLOSEUP.png"
+    ],
+    "sizes": [
+      { "size": "S", "status": "In Stock" },
+      { "size": "M", "status": "In Stock" },
+      { "size": "L", "status": "In Stock" },
+      { "size": "XL", "status": "In Stock" }
+    ]
+  },
+  {
+    "id": "SM-08-SCHISM",
+    "name": "SCHISM",
+    "price": 1199,
+    "images": [
+      "/images/SCHISM BACK - FLAT.png",
+      "/images/SCHISM BACK - HANGED.png",
+      "/images/SCHISM - CLOSEUP.png"
+    ],
+    "sizes": [
+      { "size": "S", "status": "In Stock" },
+      { "size": "M", "status": "In Stock" },
+      { "size": "L", "status": "In Stock" },
+      { "size": "XL", "status": "In Stock" }
+    ]
+  },
+  {
+    "id": "SM-09-UNDOMESTICATED",
+    "name": "UNDOMESTICATED",
+    "price": 1199,
+    "images": [
+      "/images/UNDOMESTICATED FRONT - FLAT.png",
+      "/images/UNDOMESTICATED BACK - FLAT.png",
+      "/images/UNDOMESTICATED - CLOSEUP.png"
+    ],
+    "sizes": [
+      { "size": "S", "status": "In Stock" },
+      { "size": "M", "status": "In Stock" },
+      { "size": "L", "status": "In Stock" },
+      { "size": "XL", "status": "In Stock" }
+    ]
+  },
+  {
+    "id": "SM-10-YIA",
+    "name": "YOUTH IN ASIA",
+    "price": 1199,
+    "images": [
+      "/images/YOUTH IN ASIA BACK - FLAT.png",
+      "/images/YOUTH IN ASIA BACK - HANGED.png",
+      "/images/YOUTH IN ASIA - CLOSEUP.png"
+    ],
+    "sizes": [
+      { "size": "S", "status": "In Stock" },
+      { "size": "M", "status": "In Stock" },
+      { "size": "L", "status": "In Stock" },
+      { "size": "XL", "status": "In Stock" }
+    ]
+  },
+  {
+    "id": "SM-11-NS",
+    "name": "NUFF SAID",
+    "price": 1199,
+    "images": [
+      "/images/NUFF SAID FRONT - FLAT.png",
+      "/images/NUFF SAID BACK - FLAT.png",
+      "/images/NUFF SAID FRONT - HANGED.png",
+      "/images/NUFF SAID - CLOSEUP.png"
+    ],
+    "sizes": [
+      { "size": "S", "status": "In Stock" },
+      { "size": "M", "status": "In Stock" },
+      { "size": "L", "status": "In Stock" },
+      { "size": "XL", "status": "In Stock" }
+    ]
+  },
+  {
+    "id": "SM-12-DEGUSTATION",
+    "name": "DEGUSTATION",
+    "price": 1199,
+    "images": [
+      "/images/DEGUSTATION FRONT - FLAT.png",
+      "/images/DEGUSTATION BACK - FLAT.png",
+      "/images/DEGUSTATION - HANGED.png",
+      "/images/DEGUSTATION - CLOSEUP.png"
+    ],
+    "sizes": [
+      { "size": "S", "status": "In Stock" },
+      { "size": "M", "status": "In Stock" },
+      { "size": "L", "status": "In Stock" },
+      { "size": "XL", "status": "In Stock" }
+    ]
+  }
+]
